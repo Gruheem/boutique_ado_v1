@@ -1,4 +1,5 @@
-*.sqllite3
+*.sqlite3
 *.pyc
 __pycache__
 /super_user_creds.txt
+/.venv/
