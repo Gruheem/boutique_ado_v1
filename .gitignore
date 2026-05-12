@@ -1,0 +1,4 @@
+*.sqllite3
+*.pyc
+__pycache__
+/super_user_creds.txt
