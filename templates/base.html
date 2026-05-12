@@ -11,9 +11,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    {% endblock meta %}
+    {% endblock %}
 
-    {% block extra_meta %}{% endblock extra_meta %}
+    {% block extra_meta %}{% endblock %}
 
     {% block corecss %}
     <link
@@ -24,7 +24,7 @@
     />
     {% endblock %}
 
-    {% block extra_css %}{% endblock extra_css %}
+    {% block extra_css %}{% endblock %}
 
     {% block corejs %}
     <script
@@ -42,7 +42,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    {% endblock corejs %}
+    {% endblock %}
 
     {% block extra_js %}{% endblock %}
 
@@ -53,7 +53,13 @@
 
     {% if messages %}
         <div class="message-container"></div>
-    {% end if %}
+    {% endif %}
     
+    {% block page_header %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block postloadjs %}{% endblock %}
+
   </body>
 </html>
