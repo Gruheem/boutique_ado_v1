@@ -28,8 +28,8 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// Handle real-time validation errors on the card element
-card.addEventListener('change', function(event) {
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
         var html = `
@@ -42,7 +42,7 @@ card.addEventListener('change', function(event) {
     } else {
         errorDiv.textContent = '';
     }
-})
+});
 
 // Handle form submit
 var form = document.getElementById('payment-form');
@@ -57,14 +57,14 @@ form.addEventListener('submit', function(ev) {
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    var postData = { 
-        'csrfmiddlewaretoken': csrfToken, 
-        'client_secret': clientSecret, 
-        'save_info': saveInfo 
+    var postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
 
-    $.post(url, postData).done(function() {
+    $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
